@@ -1,0 +1,19 @@
+
+
+Clock, Currency Value, Currency Thread, Currency are the main classes. SortQueue contains sorting criteria(According to the timestamp recieved.)
+
+Difficulties faced:
+
+
+Firstly, Server 2 did not need a listening server.
+
+Realising serversocket.accept() is a blocking call.
+
+Realising i need two dispatcher threads so as to listen to two other peers and one worker thread. The lack of client server model was difficult to simulate at the start.
+
+Synchronising all the methods between all the threads.
+
+
+
+
+
