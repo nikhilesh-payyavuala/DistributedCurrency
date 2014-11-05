@@ -5,14 +5,10 @@ Implemented Totally Ordered multicast using Lamport's Logical Clocks. Replica co
 
 
 
-EEL 6935 Spring 14 (Distributed Computing) Homework 4
-Assigned: Saturday , Mar -01-2014
-Due: Friday, Mar-14-2014 (at 5 pm)
+
 Distributed control of currency exchange value
-In this homework, you are to implement totally-ordered multicast using Lamport’s logical clocks (textbook
-pages 244-248, in particular page 248). The goal is to keep the replicas on the 3 VMs consistent using
-active replication protocol (page 311).
-The idea is to have the processes on the VMs share a currency value as speci􀄮􀄞d by the pair of rates (sell
+
+The idea is to have the processes on the VMs share a currency value as speci􀄞d by the pair of rates (sell
 rate, buy rate). The processes can access the currency value simultaneously. As the same 􀆟me, concurrent
 update operations are allowed on the value of currency. An operation that occurs at a process is
 contained in a message that is delivered to other processes as well as the node itself.
@@ -37,7 +33,7 @@ For example,
 P0: 192.168.0.2 (the lowest)
 P1: 192.168.0.3
 P2: 192.168.0.4 (the highest)
-EEL6935 Homework 4 – Page 1
+
 Each process is assumed to have an endpoint location consisting of the IP address and the port. For
 example, the endpoint of the process P0 would be 192.168.0.2:9999 if the port number is 9999. Also,
 each process has a list of the endpoints for all the processes (P0, P1, and P2) in the network including
@@ -71,7 +67,7 @@ timestamp of the message.
 Queue
 A process has its own local queue to store messages. A message in the queue is inserted in the order of
 its timestamp. It is removed from the queue only when it is acknowledged by all the other processes.
-EEL6935 Homework 4 – Page 2
+
 Clock counter
 Processes maintain a Lamport clock at a constant rate (ticks/sec). However, the clock rates are di􀄫erent
 for each process. The clock increases by the clock rate every second. In addition, it increases by 1 for
@@ -100,7 +96,7 @@ $java Currency [Process id] [Number of operations] [clock rate]
 e.g., java 0 30 4
 If you run 30 update operations for each process, you would end up with 90 (30 * 3) update operations
 performed.
-EEL6935 Homework 4 – Page 3
+
 Currency
 Deployment
 Phase 1: Connection setup
@@ -141,7 +137,7 @@ When a process is connected to other process, write something like the following
 P0 is connected to P1 (192.168.0.3).
 When a process is connected from other process, write something like the following into the log file:
 P1 is connected from P0 (192.168.0.2).
-EEL6935 Homework 4 – Page 4
+
 When a process has 􀄮nished its job, write something like the following into the log file:
 P2 finished.
 P0 finished.
@@ -161,35 +157,3 @@ The exact format is:
 An example of the log 􀄮le of the process P1 would be:
 IMPORTANT: Your log file format MUST be the same as the above format. Otherwise, you will not get
 credit.
-Submission (March 14th 2014, before 5 pm):
-You are required to provide the following in a single 􀄮le.
-- readme.txt file that describes the program structure such as 􀄮les, classes, and signi􀄮cant methods
-EEL6935 Homework 4 – Page 5
-- report.txt file that shows what you learned and the difficulties you had in developing the program
-and how you solved them
-- makefile to compile the program. We will type only “make” to compile the program as done in
-previous homework.
-- program source code files. DO NOT include binary files (.class, .obj, .out, .exe...). That will lead to
-grade penalty.
-IMPORTANT: ALL the above files should be tarred into ONE FILE named as yourname-hw4.tar. If you
-submit more than one file, you will be penalized.
-Please use the following commands when you submit the files.
-Create a directory yourname_hw4.
-mkdir yourname_hw4
-Copy all the required files into the directory yourname_hw4.
-cp file1 file2 file3 … yourname_hw4
-tar cf yourname_hw4.tar yourname_hw4/*
-If you submit files with extension other than tar (such as tar.gz, rar, and zip), points will be deducted
-from your grade.
-Submission Policy:
-􀁸 Do NOT include binary files. Use the file names as specified above. Incorrect submission formats
-will lead to a grade reduction.
-􀁸 You will be given access to a virtual machine. Your program will be tested on a virtual machine
-with exactly the same configuration as your virtual machine. Make sure to test your program
-before submission.
-􀁸 All submissions are expected by the deadline specified in the homework assignment. Grade is
-automatically reduced by 25% for every late day.
-􀁸 Make sure you test your submitted code using the tar file you submitted on the virtual machine
-used for course homework. If untar, make, compile or any other command needed to execute
-your program do not work, your homework grade will be zero.
-EEL6935 Homework 4 – Page 6
